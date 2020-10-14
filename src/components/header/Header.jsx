@@ -20,7 +20,9 @@ const Header = () => {
         <button className="icon-button navigation__nav-icon">
           <i className="fas fa-chevron-right"></i>
         </button>
-        <span className="navigation__displayed-month"></span>
+        {months.map((month, index) =>
+          <span className="navigation__displayed-month" key={index}>{month}</span>
+        )}
       </div>
     </header>
   )
