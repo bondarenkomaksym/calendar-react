@@ -20,12 +20,15 @@ const Header = () => {
         <button className="icon-button navigation__nav-icon">
           <i className="fas fa-chevron-right"></i>
         </button>
-        {months.map((month, index) =>
-          <span className="navigation__displayed-month" key={index}>{month}</span>
-        )}
+        <span className="navigation__displayed-month" >Month</span>
+
       </div>
     </header>
   )
 }
 
 export default Header;
+
+// {months.map((month, index) =>
+//   <span className="navigation__displayed-month" key={index}>{month}</span>
+// )}
