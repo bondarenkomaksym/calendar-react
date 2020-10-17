@@ -4,6 +4,7 @@ import './sidebar.scss';
 
 const Sidebar = (props) => {
   // console.log(props);
+  // debugger;
   const hours = Array(24).fill().map((val, index) => index);
 
   return (

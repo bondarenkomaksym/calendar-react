@@ -5,7 +5,7 @@ import './week.scss';
 
 
 const Week = ({ weekDates, events }) => {
-
+  // debugger;
   return (
     <div className="calendar__week">
       {weekDates.map(dayStart => {
