@@ -2,8 +2,7 @@ import React from 'react';
 
 import './sidebar.scss';
 
-const Sidebar = (props) => {
-  // console.log(props);
+const Sidebar = () => {
   // debugger;
   const hours = Array(24).fill().map((val, index) => index);
 
