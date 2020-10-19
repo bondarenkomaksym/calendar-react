@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './modal.scss';
 
 const Modal = () => {
 
-  let [input, setInput] = useState("");
+  const [valueTitle, setValueTitle] = useState("");
+  const [value, setValue] = useState("");
 
+  // debugger;
   return (
     <div className="modal overlay">
       <div className="modal__content">
@@ -16,6 +18,7 @@ const Modal = () => {
               name="title"
               placeholder="Title"
               className="event-form__field"
+              onChange={e => setValueTitle(e.target.valueTitle)}
             />
             <div className="event-form__time">
               <input type="date"
@@ -25,7 +28,6 @@ const Modal = () => {
               <input type="time"
                 name="startTime"
                 className="event-form__field"
-                onChange={setInput}
               />
               <span>-</span>
               <input type="time"
@@ -35,7 +37,9 @@ const Modal = () => {
             </div>
             <textarea name="description"
               placeholder="Description"
-              className="event-form__field">
+              className="event-form__field"
+              onChange={e => setValue(e.target.value)}
+            >
             </textarea>
             <button type="submit" className="event-form__submit-btn">Create</button>
           </form>

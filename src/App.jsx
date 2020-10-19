@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/header/Header.jsx';
-import Modal from './components/modal/Modal.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
+import Modal from './components/modal/Modal.jsx';
 
 import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
 
@@ -9,15 +9,12 @@ import './common.scss';
 
 const App = () => {
 
-  // const { getWeekStartDate, generateWeekRange } = props;
-  // const [date, weekStartDate] = useState(new Date());
-
   const weekDates = generateWeekRange(getWeekStartDate(new Date()));
 
   return (
     <>
       <Header />
-      {/* <Modal /> */}
+      <Modal />
       <Calendar weekDates={weekDates} />
     </>
   )

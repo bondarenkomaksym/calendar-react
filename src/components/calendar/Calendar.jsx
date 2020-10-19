@@ -7,12 +7,9 @@ import events from '../../gateway/events';
 
 import './calendar.scss';
 
-const Calendar = (props) => {
+const Calendar = ({ weekDates }) => {
 
-  // let [...rest] = useState(events);
-  useState(events);
-
-  const { weekDates, } = props;
+  // useState(events);
 
   return (
     <section className="calendar">

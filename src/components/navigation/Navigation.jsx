@@ -3,6 +3,7 @@ import React from 'react';
 import { days } from '../../utils/dateUtils.js';
 
 const Navigation = ({ weekDates }) => {
+  // debugger;
   //названия дней и номера дат над столбиками
   return (
     <header className="calendar__header">
