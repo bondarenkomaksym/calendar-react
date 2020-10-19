@@ -18,7 +18,8 @@ const Modal = () => {
               name="title"
               placeholder="Title"
               className="event-form__field"
-              onChange={e => setValueTitle(e.target.valueTitle)}
+              onChange={e => setValueTitle(e.target.value)}
+              value={valueTitle}
             />
             <div className="event-form__time">
               <input type="date"
@@ -39,6 +40,7 @@ const Modal = () => {
               placeholder="Description"
               className="event-form__field"
               onChange={e => setValue(e.target.value)}
+              value={value}
             >
             </textarea>
             <button type="submit" className="event-form__submit-btn">Create</button>
