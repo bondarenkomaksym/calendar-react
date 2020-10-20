@@ -5,7 +5,7 @@ import { months } from '../../utils/dateUtils.js';
 
 import './header.scss';
 
-const Header = ({ weekDates }) => {
+const Header = ({ weekDates, nextMonth, prevMonth }) => {
   // console.log(weekDates[6].toLocaleString('default', { month: 'long' }));
   // debugger;
 
@@ -53,13 +53,13 @@ const Header = ({ weekDates }) => {
         <i className="fas fa-plus create-event-btn__icon"></i>Create
             </button>
       <div className="navigation">
-        <button className="navigation__today-btn button" onClick={() => setDate(date)}>
+        <button className="navigation__today-btn button" >
           Today
           </button>
-        <button className="icon-button navigation__nav-icon" onClick={() => setDate(dateDefault - 1)}>
+        <button className="icon-button navigation__nav-icon" onClick={prevMonth}>
           <i className="fas fa-chevron-left"></i>
         </button>
-        <button className="icon-button navigation__nav-icon" onClick={() => setDate(dateDefault + 1)}>
+        <button className="icon-button navigation__nav-icon" onClick={nextMonth}>
           <i className="fas fa-chevron-right"></i>
         </button>
         <span className="navigation__displayed-month" >{nameOfDate}</span>
