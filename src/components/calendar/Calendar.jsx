@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
 import Navigation from './../navigation/Navigation';
 import Week from '../week/Week';
@@ -7,27 +7,32 @@ import events from '../../gateway/events';
 
 import './calendar.scss';
 
-const Calendar = ({ weekDates }) => {
+class Calendar extends Component {
 
-  // useState(events);
+  state = {
+    events,
+  }
 
-  return (
-    <section className="calendar">
-      <Navigation weekDates={weekDates} />
-      <div className="calendar__body">
-        <div className="calendar__week-container">
-          <Sidebar />
-          <Week weekDates={weekDates} events={events} />
+  render() {
+    const { weekDates } = this.props;
+
+    return (
+      <section className="calendar">
+        <Navigation weekDates={weekDates} />
+        <div className="calendar__body">
+          <div className="calendar__week-container">
+            <Sidebar />
+            <Week weekDates={weekDates} events={this.state.events} />
+          </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
 }
 
 export default Calendar;
 
-
-// import React, { Component } from 'react';
+// import React, { useState } from 'react';
 
 // import Navigation from './../navigation/Navigation';
 // import Week from '../week/Week';
@@ -36,28 +41,21 @@ export default Calendar;
 
 // import './calendar.scss';
 
-// class Calendar extends Component {
+// const Calendar = ({ weekDates }) => {
 
-//   state = {
-//     events,
-//   }
+//   // useState(events);
 
-//   render() {
-//     const { weekDates } = this.props;
-
-//     return (
-//       <section className="calendar">
-//         <Navigation weekDates={weekDates} />
-//         <div className="calendar__body">
-//           <div className="calendar__week-container">
-//             <Sidebar />
-//             <Week weekDates={weekDates} events={this.state.events} />
-//           </div>
+//   return (
+//     <section className="calendar">
+//       <Navigation weekDates={weekDates} />
+//       <div className="calendar__body">
+//         <div className="calendar__week-container">
+//           <Sidebar />
+//           <Week weekDates={weekDates} events={events} />
 //         </div>
-//       </section>
-//     )
-//   }
+//       </div>
+//     </section>
+//   )
 // }
 
 // export default Calendar;
-
