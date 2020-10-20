@@ -28,7 +28,7 @@ class App extends React.Component {
 
   state = {
     // weekStartDate: new Date(Date.now() + 604800000),
-    weekStartDate: moment().subtract(7, 'days').toDate(),
+    weekStartDate: moment().add(0, 'days').toDate(),
   }
 
   render() {
