@@ -27,8 +27,8 @@ class App extends React.Component {
   }
 
   render() {
-    const currentDate = moment().add(this.state.day, 'days').toDate();
-    const weekDates = generateWeekRange(getWeekStartDate(currentDate));
+    const weekStartDate = moment().add(this.state.day, 'days').toDate();
+    const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
     return (<>
       <Header
