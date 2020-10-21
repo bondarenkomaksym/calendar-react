@@ -11,23 +11,23 @@ import './common.scss';
 class App extends React.Component {
 
   state = {
-    day: 0,
+    week: 0,
   }
 
   nextMonth = () => {
     this.setState({
-      day: this.state.day + 7,
+      week: this.state.week + 7,
     })
   }
 
   prevMonth = () => {
     this.setState({
-      day: this.state.day - 7,
+      week: this.state.week - 7,
     })
   }
 
   render() {
-    const weekStartDate = moment().add(this.state.day, 'days').toDate();
+    const weekStartDate = moment().add(this.state.week, 'days').toDate();
     const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
     return (<>
