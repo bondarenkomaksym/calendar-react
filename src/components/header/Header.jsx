@@ -3,7 +3,7 @@ import { months } from '../../utils/dateUtils.js';
 
 import './header.scss';
 
-const Header = ({ weekDates, nextMonth, prevMonth, today }) => {
+const Header = ({ weekDates, nextMonth, prevMonth, today, isOpen }) => {
   // console.log(weekDates[6].toLocaleString('default', { month: 'long' }));
   // debugger;
 
@@ -27,7 +27,7 @@ const Header = ({ weekDates, nextMonth, prevMonth, today }) => {
 
   return (
     <header className="header">
-      <button className="button create-event-btn">
+      <button className="button create-event-btn" onClick={isOpen}>
         <i className="fas fa-plus create-event-btn__icon"></i>Create
             </button>
       <div className="navigation">
