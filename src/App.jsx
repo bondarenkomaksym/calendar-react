@@ -38,6 +38,11 @@ class App extends React.Component {
       isOpen: true,
     })
   }
+  closeModal = () => {
+    this.setState({
+      isOpen: false,
+    })
+  }
 
   render() {
     const weekStartDate = moment().add(this.state.week, 'days').toDate();
@@ -51,7 +56,10 @@ class App extends React.Component {
         today={this.today}
         openModal={this.openModal}
       />
-      <Modal isOpen={this.state.isOpen} />
+      <Modal
+        isOpen={this.state.isOpen}
+        closeModal={this.closeModal}
+      />
       <Calendar weekDates={weekDates} />
     </>)
   }

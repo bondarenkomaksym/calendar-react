@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import './modal.scss';
 
-const Modal = ({ isOpen }) => {
+const Modal = ({ isOpen, closeModal }) => {
 
   if (!isOpen) {
     return null;
@@ -16,7 +16,7 @@ const Modal = ({ isOpen }) => {
     <div className="modal overlay">
       <div className="modal__content">
         <div className="create-event">
-          <button className="create-event__close-btn">+</button>
+          <button className="create-event__close-btn" onClick={closeModal}>+</button>
           <form className="event-form">
             <input type="text"
               name="title"
