@@ -25,13 +25,12 @@ class App extends React.Component {
       week: this.state.week - 7,
     })
   }
+
   today = () => {
     this.setState({
       week: 0,
     })
   }
-
-
 
   render() {
     const weekStartDate = moment().add(this.state.week, 'days').toDate();
