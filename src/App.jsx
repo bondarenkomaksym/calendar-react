@@ -25,6 +25,13 @@ class App extends React.Component {
       week: this.state.week - 7,
     })
   }
+  today = () => {
+    this.setState({
+      week: 0,
+    })
+  }
+
+
 
   render() {
     const weekStartDate = moment().add(this.state.week, 'days').toDate();
@@ -35,6 +42,7 @@ class App extends React.Component {
         weekDates={weekDates}
         nextMonth={this.nextMonth}
         prevMonth={this.prevMonth}
+        today={this.today}
       />
       {/* <Modal /> */}
       <Calendar weekDates={weekDates} />
