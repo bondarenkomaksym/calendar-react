@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import './modal.scss';
 
-const Modal = () => {
-
+const Modal = ({ isOpen }) => {
+  if (isOpen) {
+    return null;
+  }
   const [valueTitle, setValueTitle] = useState("");
   const [value, setValue] = useState("");
 

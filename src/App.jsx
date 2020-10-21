@@ -12,7 +12,7 @@ class App extends React.Component {
 
   state = {
     week: 0,
-    isOpenModal: false,
+    isOpen: false,
   }
 
   nextMonth = () => {
@@ -35,7 +35,7 @@ class App extends React.Component {
 
   openModal = () => {
     this.setState({
-      isOpenModal: true,
+      isOpen: true,
     })
   }
 
@@ -50,7 +50,7 @@ class App extends React.Component {
         prevMonth={this.prevMonth}
         today={this.today}
       />
-      <Modal isOpen={this.state.isOpenModal} />
+      <Modal isOpen={this.openModal} />
       <Calendar weekDates={weekDates} />
     </>)
   }
