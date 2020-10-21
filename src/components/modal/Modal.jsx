@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './modal.scss';
 
 const Modal = ({ isOpen }) => {
-  if (isOpen) {
+  if (!isOpen) {
     return null;
   }
   const [valueTitle, setValueTitle] = useState("");

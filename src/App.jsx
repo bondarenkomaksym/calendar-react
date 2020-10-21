@@ -49,8 +49,9 @@ class App extends React.Component {
         nextMonth={this.nextMonth}
         prevMonth={this.prevMonth}
         today={this.today}
+        openModal={this.openModal}
       />
-      <Modal isOpen={this.openModal} />
+      <Modal isOpen={this.state.isOpen} />
       <Calendar weekDates={weekDates} />
     </>)
   }
