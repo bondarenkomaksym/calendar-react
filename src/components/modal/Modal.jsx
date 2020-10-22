@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import './modal.scss';
 
-// const baseUrl = "https://crudcrud.com/api/c0cd89749247443bbf8124549c93c712/events";
-// const baseUrl = "https://5f903ab5e0559c0016ad64ac.mockapi.io/events";
 
-const Modal = ({ isOpen, closeModal }) => {
+
+const Modal = ({ isOpen, closeModal, onCreate }) => {
 
   if (!isOpen) {
     return null;
@@ -16,17 +15,25 @@ const Modal = ({ isOpen, closeModal }) => {
   const [date, setDate] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
-  // debugger;
 
-  // const submit = e => {
-  //   fetch(baseUrl, {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json; utc-8' },
-  //     body: JSON.stringify({ title, description, date, startTime, endTime }),
-  //   })
+
+  // debugger;
+  // const submit = () => {
+  //   onCreate({ title, description, date, startTime, endTime });
   // }
+  // debugger;
+
+  const callback = (e) => {
+    e.preventDefault();
+    onCreate({ title, description, date, startTime, endTime });
+    closeModal();
+  }
+
+
 
   // debugger;
+
+
   return (
     <div className="modal overlay">
       <div className="modal__content">
@@ -71,7 +78,7 @@ const Modal = ({ isOpen, closeModal }) => {
             <button
               type="submit"
               className="event-form__submit-btn"
-              onClick={submit}
+              onClick={callback}
             >Create</button>
           </form>
         </div>

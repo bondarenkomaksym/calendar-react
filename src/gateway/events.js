@@ -1,3 +1,6 @@
+import React from 'react';
+import Modal from '../components/modal/Modal.jsx';
+
 const events = [
   {
     id: 1,

@@ -3,16 +3,24 @@ import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
 import Modal from './components/modal/Modal.jsx';
 import moment from 'moment';
+import events from './gateway/events.js';
 
 import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
 
 import './common.scss';
 
-class App extends React.Component {
+// const baseUrl = "https://crudcrud.com/api/c0cd89749247443bbf8124549c93c712/events";
+const baseUrl = "https://5f903ab5e0559c0016ad64ac.mockapi.io/events";
 
-  state = {
-    week: 0,
-    isOpen: false,
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      week: 0,
+      isOpen: false,
+      eventFormData: []
+    }
+
   }
 
   nextMonth = () => {
@@ -38,11 +46,36 @@ class App extends React.Component {
       isOpen: true,
     })
   }
+
   closeModal = () => {
     this.setState({
       isOpen: false,
     })
   }
+
+  onCreate = ({ title, description, date, startTime, endTime }) => {
+
+    const dateFrom = new Date(`${date} ${startTime}`);
+    const dateTo = new Date(`${date} ${endTime}`);
+
+    this.setState(
+      (prevState) => {
+        return {
+          eventFormData: [...prevState.eventFormData, { id: Date.now(), title, description, dateFrom, dateTo }]
+        }
+      }
+    )
+    fetch(baseUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, description, dateFrom, dateTo }),
+    }).then(response => { console.log(response) })
+  }
+
+
+  // debugger;
+
+  // debugger;
 
   render() {
     const weekStartDate = moment().add(this.state.week, 'days').toDate();
@@ -56,29 +89,16 @@ class App extends React.Component {
         today={this.today}
         openModal={this.openModal}
       />
+      {/* {console.log(this.state.eventFormData)} */}
       <Modal
         isOpen={this.state.isOpen}
         closeModal={this.closeModal}
+        onCreate={this.onCreate}
       />
-      <Calendar weekDates={weekDates} />
+      <Calendar weekDates={weekDates} events={this.state.eventFormData} />
     </>)
   }
 };
 export default App;
 
 
-
-// const App = () => {
-
-//   const weekDates = generateWeekRange(getWeekStartDate(new Date()));
-
-//   return (
-//     <>
-//       <Header />
-//       {/* <Modal /> */}
-//       <Calendar weekDates={weekDates} />
-//     </>
-//   )
-
-// };
-// export default App;

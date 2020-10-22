@@ -3,18 +3,18 @@ import React, { Component } from 'react';
 import Navigation from './../navigation/Navigation';
 import Week from '../week/Week';
 import Sidebar from '../sidebar/Sidebar';
-import events from '../../gateway/events';
+// import events from '../../gateway/events';
 
 import './calendar.scss';
 
 class Calendar extends Component {
 
-  state = {
-    events,
-  }
+  // state = {
+  //   events,
+  // }
 
   render() {
-    const { weekDates } = this.props;
+    const { weekDates, events } = this.props;
 
     return (
       <section className="calendar">
@@ -22,7 +22,7 @@ class Calendar extends Component {
         <div className="calendar__body">
           <div className="calendar__week-container">
             <Sidebar />
-            <Week weekDates={weekDates} events={this.state.events} />
+            <Week weekDates={weekDates} events={events} />
           </div>
         </div>
       </section>
