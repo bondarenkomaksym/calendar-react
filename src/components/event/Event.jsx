@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import DeletePopUp from '../deletePopUp/DeletePopUp';
-// import { closePopUp } from '../deletePopUp/DeletePopUp';
 
 import './event.scss';
 
 
 const Event = ({ height, marginTop, title, time }) => {
 
-  const [deletePopUp, setDeletePopUp] = useState(false);
+  const [openPopUp, setOpenPopUp] = useState(false);
+
+  const togglePopUp = () => {
+    setOpenPopUp(!openPopUp);
+  }
 
   const eventStyle = {
     height,
@@ -17,17 +20,17 @@ const Event = ({ height, marginTop, title, time }) => {
 
   return (
     <>
-      <div style={eventStyle} className="event" onClick={() => setDeletePopUp(true)}>
+      <div style={eventStyle} className="event" onClick={togglePopUp}>
         <div className="event__title">{title}</div>
         <div className="event__time">{time}</div>
       </div >
       <DeletePopUp
-        isOpenPopUp={deletePopUp}
-      // onClick={closePopUp}
+        title={title}
+        togglePopUp={togglePopUp}
+        openPopUp={openPopUp}
       />
     </>
   )
 }
-
 
 export default Event;

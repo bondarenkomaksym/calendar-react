@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import './deletePopUp.scss';
 
-const DeletePopUp = ({ isOpenPopUp }) => {
+const DeletePopUp = ({ togglePopUp, openPopUp, title }) => {
 
-  if (!isOpenPopUp) {
+  if (!openPopUp) {
     return null;
   }
 
@@ -17,10 +17,9 @@ const DeletePopUp = ({ isOpenPopUp }) => {
           className="popup__delete_btn"
         >Delete event</button>
         <button className="popup__close-btn"
-        // onClick={closePopUp}
+          onClick={togglePopUp}
         >+</button>
       </div>
-
     </div>
   )
 }

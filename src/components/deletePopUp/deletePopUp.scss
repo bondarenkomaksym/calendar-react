@@ -1,26 +1,15 @@
 .popup {
-  // position: absolute;
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  // top: 88px;
-  // left: 32px;
-  // width: 200px;
-  // height: 80px;
-  // background-color: rgb(255, 255, 255);
-  // border-radius: 8px;
-  // padding: 10px;
   color: #fff;
-  box-shadow: 2px 3px 14px 0px #0000005c;
-  // overflow: hidden;
-  // white-space: nowrap;
 
   &__content {
     background: #fff;
     padding: 16px;
-    border: 1px solid #ccc;
     border-radius: 8px;
+    box-shadow: 2px 3px 14px 0px #0000005c;
 }
 
   &__delete_btn {
@@ -52,10 +41,10 @@
 
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  // top: 0;
+  // left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #cccccc45;
-  z-index: 10;
+  background-color: #0438e4;
+  // z-index: 10;
 }
