@@ -84,8 +84,13 @@ class App extends React.Component {
     }).then(response => { console.log(response) })
   }
 
-
   // debugger;
+  deleteEvent = (id) => {
+    // debugger;
+    const updatedEvents = this.state.eventFormData
+      .filter(event => event.id !== id);
+    this.setState({ eventFormData: updatedEvents })
+  }
 
   // debugger;
 
@@ -101,13 +106,16 @@ class App extends React.Component {
         today={this.today}
         openModal={this.openModal}
       />
-      {/* {console.log(this.state.eventFormData)} */}
       <Modal
         isOpen={this.state.isOpen}
         closeModal={this.closeModal}
         onCreate={this.onCreate}
       />
-      <Calendar weekDates={weekDates} events={this.state.eventFormData} />
+      <Calendar
+        weekDates={weekDates}
+        events={this.state.eventFormData}
+        deleteEvent={this.deleteEvent}
+      />
     </>)
   }
 };

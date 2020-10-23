@@ -4,7 +4,7 @@ import Hour from '../hour/Hour';
 import './day.scss';
 
 
-const Day = ({ dataDay, dayEvents }) => {
+const Day = ({ dataDay, dayEvents, deleteEvent }) => {
   const hours = Array(24).fill().map((val, index) => index);
 
   return (
@@ -18,6 +18,7 @@ const Day = ({ dataDay, dayEvents }) => {
             key={dataDay + hour}
             dataHour={hour}
             hourEvents={hourEvents}
+            deleteEvent={deleteEvent}
           />
         )
       })}

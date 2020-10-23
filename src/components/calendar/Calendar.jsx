@@ -14,7 +14,7 @@ class Calendar extends Component {
   // }
 
   render() {
-    const { weekDates, events } = this.props;
+    const { weekDates, events, deleteEvent } = this.props;
 
     return (
       <section className="calendar">
@@ -22,7 +22,11 @@ class Calendar extends Component {
         <div className="calendar__body">
           <div className="calendar__week-container">
             <Sidebar />
-            <Week weekDates={weekDates} events={events} />
+            <Week
+              weekDates={weekDates}
+              events={events}
+              deleteEvent={deleteEvent}
+            />
           </div>
         </div>
       </section>
@@ -32,30 +36,3 @@ class Calendar extends Component {
 
 export default Calendar;
 
-// import React, { useState } from 'react';
-
-// import Navigation from './../navigation/Navigation';
-// import Week from '../week/Week';
-// import Sidebar from '../sidebar/Sidebar';
-// import events from '../../gateway/events';
-
-// import './calendar.scss';
-
-// const Calendar = ({ weekDates }) => {
-
-//   // useState(events);
-
-//   return (
-//     <section className="calendar">
-//       <Navigation weekDates={weekDates} />
-//       <div className="calendar__body">
-//         <div className="calendar__week-container">
-//           <Sidebar />
-//           <Week weekDates={weekDates} events={events} />
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
-
-// export default Calendar;

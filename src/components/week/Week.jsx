@@ -4,7 +4,7 @@ import Day from '../day/Day';
 import './week.scss';
 
 
-const Week = ({ weekDates, events }) => {
+const Week = ({ weekDates, events, deleteEvent }) => {
   // debugger;
   console.log(events);
   return (
@@ -17,7 +17,11 @@ const Week = ({ weekDates, events }) => {
           .filter(event => event.dateFrom > dayStart && event.dateTo < dayEnd);
 
         return (
-          <Day key={dayStart.getDate()} dataDay={dayStart.getDate()} dayEvents={dayEvents} />
+          <Day
+            key={dayStart.getDate()}
+            dataDay={dayStart.getDate()}
+            dayEvents={dayEvents}
+            deleteEvent={deleteEvent} />
         )
       })}
     </div>
