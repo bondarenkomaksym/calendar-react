@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import './modal.scss';
 
-
-
 const Modal = ({ isOpen, closeModal, onCreate }) => {
 
   if (!isOpen) {
@@ -18,10 +16,6 @@ const Modal = ({ isOpen, closeModal, onCreate }) => {
 
 
   // debugger;
-  // const submit = () => {
-  //   onCreate({ title, description, date, startTime, endTime });
-  // }
-  // debugger;
 
   const callback = (e) => {
     e.preventDefault();
@@ -29,10 +23,7 @@ const Modal = ({ isOpen, closeModal, onCreate }) => {
     closeModal();
   }
 
-
-
   // debugger;
-
 
   return (
     <div className="modal overlay">

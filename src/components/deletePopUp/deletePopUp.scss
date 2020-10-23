@@ -1,0 +1,61 @@
+.popup {
+  // position: absolute;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // top: 88px;
+  // left: 32px;
+  // width: 200px;
+  // height: 80px;
+  // background-color: rgb(255, 255, 255);
+  // border-radius: 8px;
+  // padding: 10px;
+  color: #fff;
+  box-shadow: 2px 3px 14px 0px #0000005c;
+  // overflow: hidden;
+  // white-space: nowrap;
+
+  &__content {
+    background: #fff;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+  &__delete_btn {
+    margin-right: 8px;
+    margin-left: auto;
+    border: none;
+    color: #fff;
+    background-color: cornflowerblue;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+
+  &__close-btn{
+    position: relative;
+    margin-left: auto;
+    bottom: 14px;
+    left: 6px;
+    transform: rotate(45deg) scale(2);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #cccccc45;
+  z-index: 10;
+}

@@ -3,13 +3,12 @@ import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
 import Modal from './components/modal/Modal.jsx';
 import moment from 'moment';
-import events from './gateway/events.js';
+// import events from './gateway/events.js';
 
 import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
 
 import './common.scss';
 
-// const baseUrl = "https://crudcrud.com/api/c0cd89749247443bbf8124549c93c712/events";
 const baseUrl = "https://5f903ab5e0559c0016ad64ac.mockapi.io/events";
 
 class App extends React.Component {
@@ -18,7 +17,20 @@ class App extends React.Component {
     this.state = {
       week: 0,
       isOpen: false,
-      eventFormData: []
+      eventFormData: [{
+        id: 1,
+        title: 'Go to the gym',
+        description: 'some text here',
+        dateFrom: new Date(2020, 9, 23, 2, 15),
+        dateTo: new Date(2020, 9, 23, 3, 45),
+      },
+      {
+        id: 2,
+        title: 'qqqqqqqqq',
+        description: 'some text here',
+        dateFrom: new Date(2020, 9, 24, 2, 15),
+        dateTo: new Date(2020, 9, 24, 3, 45),
+      },]
     }
 
   }
