@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import './deletePopUp.scss';
 
-const DeletePopUp = ({ togglePopUp, openPopUp, id, deleteEvent }) => {
+const DeletePopUp = ({ togglePopUp, openPopUp, id, deleteEvent, title }) => {
 
   if (!openPopUp) {
     return null;
@@ -14,6 +14,7 @@ const DeletePopUp = ({ togglePopUp, openPopUp, id, deleteEvent }) => {
   return (
     <div className="popup overlay">
       <div className="popup__content">
+        <div className="popup__title">{title}</div>
         <button
           className="popup__delete_btn"
           onClick={() => deleteEvent(id)}

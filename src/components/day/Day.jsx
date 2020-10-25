@@ -12,7 +12,7 @@ const Day = ({ dataDay, dayEvents, deleteEvent }) => {
       {hours.map(hour => {
         //getting all events from the day we will render
         const hourEvents = dayEvents.filter(event => event.dateFrom.getHours() === hour);
-
+        console.log(hourEvents);
         return (
           <Hour
             key={dataDay + hour}

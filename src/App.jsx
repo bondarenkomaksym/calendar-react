@@ -30,7 +30,6 @@ class App extends React.Component {
     }
   }
 
-
   componentDidMount() {
     this.fetchEvetsList();
   }
@@ -54,8 +53,6 @@ class App extends React.Component {
       })
     })
   }
-
-
 
   nextMonth = () => {
     this.setState({
@@ -90,9 +87,7 @@ class App extends React.Component {
   onCreate = ({ title, description, date, startTime, endTime }) => {
 
     const dateFrom = new Date(`${date} ${startTime}`);
-    // console.log(dateFrom);
     const dateTo = new Date(`${date} ${endTime}`);
-
 
     // this.setState(
     //   (prevState) => {
@@ -115,9 +110,19 @@ class App extends React.Component {
   }
 
   deleteEvent = (id) => {
-    const updatedEvents = this.state.events
-      .filter(event => event.id !== id);
-    this.setState({ events: updatedEvents })
+    fetch(`${baseUrl}/${id}`, {
+      method: 'DELETE',
+    }).then(response => {
+      if (response.ok) {
+        this.fetchEvetsList();
+      } else {
+        throw new Error("Internal Server Error. Can't display events")
+      }
+    })
+
+    // const updatedEvents = this.state.events
+    //   .filter(event => event.id !== id);
+    // this.setState({ events: updatedEvents })
   }
 
   render() {

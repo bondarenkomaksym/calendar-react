@@ -4,7 +4,7 @@ import DeletePopUp from '../deletePopUp/DeletePopUp';
 import './event.scss';
 
 
-const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
+const Event = ({ height, marginTop, title, time, id, deleteEvent, description }) => {
 
   const [openPopUp, setOpenPopUp] = useState(false);
 
@@ -24,6 +24,7 @@ const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
       <div style={eventStyle} className="event" onClick={togglePopUp}>
         <div className="event__title">{title}</div>
         <div className="event__time">{time}</div>
+        <div className="event__description">{description}</div>
       </div >
       { console.log(id)}
       <DeletePopUp

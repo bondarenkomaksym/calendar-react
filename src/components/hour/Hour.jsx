@@ -5,11 +5,12 @@ import { formatMins } from '../../../src/utils/dateUtils.js';
 
 
 const Hour = ({ dataHour, hourEvents, deleteEvent }) => {
+  // console.log(hourEvents);
   // debugger;
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
       {/* if no events in the current hour nothing will render here */}
-      {hourEvents.map(({ id, dateFrom, dateTo, title }) => {
+      {hourEvents.map(({ id, dateFrom, dateTo, title, description }) => {
         const eventStart = `${dateFrom.getHours()}:${formatMins(dateFrom.getMinutes())}`;
         const eventEnd = `${dateTo.getHours()}:${formatMins(dateTo.getMinutes())}`;
         { console.log(id) }
@@ -23,6 +24,7 @@ const Hour = ({ dataHour, hourEvents, deleteEvent }) => {
             marginTop={dateFrom.getMinutes()}
             time={`${eventStart} - ${eventEnd}`}
             title={title}
+            description={description}
           />
         )
       })}
