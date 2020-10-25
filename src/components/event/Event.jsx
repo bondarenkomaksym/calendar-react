@@ -18,7 +18,7 @@ const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
     marginTop
   }
 
-  debugger;
+  // debugger;
   return (
     <>
       <div style={eventStyle} className="event" onClick={togglePopUp}>

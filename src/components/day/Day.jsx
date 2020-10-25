@@ -6,7 +6,7 @@ import './day.scss';
 
 const Day = ({ dataDay, dayEvents, deleteEvent }) => {
   const hours = Array(24).fill().map((val, index) => index);
-
+  // console.log({ ...dayEvents });
   return (
     <div className="calendar__day" data-day={dataDay}>
       {hours.map(hour => {

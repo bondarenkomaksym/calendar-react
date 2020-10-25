@@ -20,6 +20,7 @@ const Modal = ({ isOpen, closeModal, onCreate }) => {
   const callback = (e) => {
     e.preventDefault();
     onCreate({ title, description, date, startTime, endTime });
+    // onCreate({ formData });
     closeModal();
   }
 
