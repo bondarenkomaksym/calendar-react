@@ -3,13 +3,9 @@ import moment from 'moment';
 import Event from '../event/Event';
 import { formatMins } from '../../../src/utils/dateUtils.js';
 
+import './hour.scss';
 
-const Hour = ({ dataHour, hourEvents, deleteEvent }) => {
-
-  // const todayRedLine = moment().format('YYYY-MM-DD HH');
-  const todayRedLine = Date.now();
-
-  console.log(todayRedLine);
+const Hour = ({ dataHour, hourEvents, deleteEvent, dataDay }) => {
 
   const [height, setHeight] = useState(moment().format("mm"))
 
@@ -20,18 +16,11 @@ const Hour = ({ dataHour, hourEvents, deleteEvent }) => {
     return () => clearInterval(intervalId);
   });
 
-  const styleLine = {
-    zIndex: 999,
-    position: 'absolute',
-    top: `${height}px`,
-    color: 'red',
-    fontWeight: 'bold'
-  }
-
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
 
-      {<span style={styleLine}>RedLine</span>}
+      {`${dataDay} ${dataHour}` === moment().format('DD HH')
+        && <div className="calendar__redline" style={{ top: `${height}px` }}></div>}
 
       {/* if no events in the current hour nothing will render here */}
       {hourEvents.map(({ id, dateFrom, dateTo, title, description }) => {
