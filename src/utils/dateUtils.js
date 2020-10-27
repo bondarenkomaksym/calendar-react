@@ -10,6 +10,8 @@ export const getWeekStartDate = (date) => {
   return new Date(monday.getFullYear(), monday.getMonth(), monday.getDate());
 }
 
+// export const beginningWeek = today.startOf('isoWeek').format("MMMM");
+
 export const generateWeekRange = (startDate) => {
   const result = [];
   for (let i = 0; i < 7; i += 1) {
@@ -33,17 +35,3 @@ export const formatMins = (mins) => {
 }
 
 export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-export const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];

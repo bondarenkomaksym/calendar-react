@@ -1,29 +1,7 @@
-import React, { useState } from 'react';
-import { months } from '../../utils/dateUtils.js';
-
+import React from 'react';
 import './header.scss';
 
-const Header = ({ weekDates, nextMonth, prevMonth, today, openModal }) => {
-  // console.log(weekDates[6].toLocaleString('default', { month: 'long' }));
-  // debugger;
-
-  function ND(args) {
-    if (weekDates[0].getFullYear() !== weekDates[6].getFullYear() && weekDates[0].getMonth() !== weekDates[6].getMonth()) {
-      let FullName = (`${months[weekDates[0].getMonth()]} ${weekDates[0].getFullYear()} - ${months[weekDates[6].getMonth()]} ${weekDates[6].getFullYear()}`);
-      return FullName;
-    }
-    if (weekDates[0].getMonth() !== weekDates[6].getMonth()) {
-      let twoMonthNames = (`${months[weekDates[0].getMonth()]} - ${months[weekDates[6].getMonth()]} ${weekDates[6].getFullYear()}`);
-      return twoMonthNames;
-    }
-    if (weekDates[0].getMonth() === weekDates[6].getMonth()) {
-      let oneMonthName = `${months[weekDates[0].getMonth()]} ${weekDates[6].getFullYear()}`;
-      return oneMonthName;
-    }
-  }
-
-  let nameOfDate = ND({ weekDates });
-  console.log(nameOfDate);
+const Header = ({ nextMonth, prevMonth, today, openModal, nameOfDate }) => {
 
   return (
     <header className="header">
