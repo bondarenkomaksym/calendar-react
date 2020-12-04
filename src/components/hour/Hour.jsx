@@ -19,10 +19,9 @@ const Hour = ({ dataHour, hourEvents, deleteEvent, dataDay }) => {
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
 
-      {`${dataDay} ${dataHour}` === moment().format('DD HH')
+      {`${dataDay} ${dataHour}` === moment().format('D HH')
         && <div className="calendar__redline" style={{ top: `${height}px` }}></div>}
 
-      {/* if no events in the current hour nothing will render here */}
       {hourEvents.map(({ id, dateFrom, dateTo, title, description }) => {
         const eventStart = `${dateFrom.getHours()}:${formatMins(dateFrom.getMinutes())}`;
         const eventEnd = `${dateTo.getHours()}:${formatMins(dateTo.getMinutes())}`;
@@ -32,7 +31,6 @@ const Hour = ({ dataHour, hourEvents, deleteEvent, dataDay }) => {
             key={id}
             id={id}
             deleteEvent={deleteEvent}
-            //calculating event height = duration of event in minutes
             height={(dateTo.getTime() - dateFrom.getTime()) / (1000 * 60)}
             marginTop={dateFrom.getMinutes()}
             time={`${eventStart} - ${eventEnd}`}
@@ -42,7 +40,6 @@ const Hour = ({ dataHour, hourEvents, deleteEvent, dataDay }) => {
         )
       })}
     </div>
-
   )
 }
 
